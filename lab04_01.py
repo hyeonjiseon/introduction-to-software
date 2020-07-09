@@ -6,7 +6,6 @@ name = input("계좌 소유자 이름을 입력하세요: ")
 print("="*49)
 money = 100000
 
-
 while True :
 
     print("1. 입금\n2. 출금\n3. 잔액 확인\n4. 종료")
@@ -43,3 +42,40 @@ while True :
     elif choice == 4:
         print("이용해 주셔서 감사합니다.")
         break
+    else:
+        print("1~4 중에서 입력해주세요")
+
+
+#다른 풀이
+print('◆'*40)
+print("           숙명은행 ATM            ")
+print('◆'*40)
+name = input("계좌 소유자 이름을 입력하세요: ")
+total = 100000
+select = 0
+
+while True:
+    print('='*40)
+    print("1. 입금\n" + "2. 출금\n" + "3. 잔액 확인\n" + "4. 종료\n" + '-'*40)
+    select = int(input("선택: "))
+    print('='*40)
+    if select == 1:
+        money_in = int(input("입금액: "))
+        total = total + money_In
+        print(str(money_in)+"원이 입금되었습니다.")
+    elif select == 2:
+        money_out = int(input("출금액: "))
+        if money_out > total:
+            print("잔액이 부족합니다. 인출이 이루어지지 못했습니다.")
+        elif money_out <=0:
+            print("출금액을 정확히 입력하세요")
+        else:
+            total = total - money_out
+            print(str(money_out)+"원이 인출되었습니다.")
+    elif select == 3:
+        print(name + "님의 현재 잔액은 "+str(total)+"원입니다.")
+    elif select == 4:
+        print("이용해 주셔서 감사합니다.")
+        break
+    else:
+        print("1~4 중에서 입력해주세요")
