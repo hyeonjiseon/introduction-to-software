@@ -30,7 +30,7 @@ messg = easygui.enterbox("문자 건수를 입력하세요")
 data = easygui.enterbox("데이터사용량(MB)을 입력하세요")
 
 if int(call)<120: etrcall=0
-elif int(call)>=120: etrcall = (int(call) - 120) * 60 * 1.98
+elif int(call)>=120: etrcall = int((int(call) - 120) * 60 * 1.98)
 
 
 if int(messg)<200: etrmessg=0
@@ -39,7 +39,7 @@ elif int(messg)>=200: etrmessg = (int(messg) - 200) * 22
 if int(data)<800: etrdata=0
 elif int(data)>=800: etrdata = (int(data) - 800) * 55
 
-total = int(call) + int(etrcall) + int(messg) + int(etrmessg) + int(data) + int(etrdata)
+total = 37400 + int(etrcall) + int(etrmessg) + int(etrdata)
 
 
 total = easygui.msgbox("====정혜인님의 4월 이용요금====\n" + "34요금제 기본 요금: 37400원\n"
