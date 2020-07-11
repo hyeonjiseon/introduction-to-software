@@ -201,3 +201,62 @@ print("주차 시간 : "+str(d_hour)+"시"+str(d_min)+"분("+str(minute)+"분)")
 print("-"*55)
 print("주차 요금 :"+str(fee)+"원")
 
+
+#또 다른 풀이
+import math
+print("*******************************************************")
+print("             숙명여자대학교 4월 단기 주차장")
+print("          (24시간 이상 주차하실 수 없습니다.)")
+print("*******************************************************")
+print("")
+
+while True:
+ name = input("차량 번호를 입력하세요: ")
+ enterhour = int(input("들어온 시간을 입력하세요(0-23): "))
+ entermin = int(input("들어온 분을 입력하세요(0-59): "))
+ leavehour = int(input("나간 시간을 입력하세요(0-23): "))
+ leavemin = int(input("나간 분을 입력하세요(0-59): "))
+ print("------------------------------------------------------")
+
+ if (enterhour >= 0 and enterhour <= 23) or (leavehour >= 0 and leavehour <= 23) or (entermin >=0 and entermin <= 59) or (leavemin >=0 and leavemin <= 59):
+     break
+ else:
+     print("입력 오류입니다. 범위를 맞추어 다시 입력해 주세요.")
+     
+print("")
+print("=======================================================")
+print(          "'", name, "'", "차량 주차료 명세서")
+print("=======================================================")
+print("입차 시간 : ", enterhour, "시", entermin, "분")
+print("출차 시간 : ", leavehour, "시", leavemin, "분")
+
+if leavemin - entermin >= 0:
+    parkingmin = leavemin - entermin
+    if leavehour - enterhour >= 0:
+        parkinghour = leavehour - enterhour
+    else:
+        parkinghour = leavehour - enterhour + 24
+else:
+    parkingmin = leavemin - entermin + 60
+    if leavehour - enterhour >= 0:
+        parkinghour = leavehour - enterhour -1
+    else:
+        parkinghour = leavehour - enberhour + 23
+parkminute = parkinghour * 60 + parkingmin
+print("주차 시간 : ", parkinghour, "시간 ", parkingmin, "분(", parkminute, "분)")
+print("------------------------------------------------------")
+
+if leavehour - enterhour >= 0:
+    if parkminute > 0 and parkminute <=30:
+        fee = 1500
+    elif parkminute < 293:
+        fee = 1500 + math.ceil((parkminute - 30)/15)*600
+    else:
+        fee = 12000
+else:
+    firstday= 1500 + math.ceil((23 - enterhour)*60 + (60 - entermin)/15)*600
+    seconday= 1500 + math.ceil((leavehour*60 + leavemin)/15)*600
+        fee = firstday + seconday
+
+print("주차 요금 : ", fee, "원")
+
