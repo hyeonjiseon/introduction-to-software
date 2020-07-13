@@ -1,4 +1,9 @@
-import math
+#이차원 공간에서 두 점 (x1, y1)과 (x2, y2)를 사용자로부터 입력 받아 두 점 사이의 거리를 계산
+import math #math 모듈 불러오기
+#좌표는 int형으로 입력 받기
+#math.sqrt(x): x 제곱근을 계산하여 반환
+#math.pow(x,y): x의 y승을 계산하여 반환
+#두 점 사이의 거리 공식: ((x2-x1)^2 + (y2-y1)^2)^1/2
 
 firstx = int(input("첫 번째 x좌표 입력:"))
 firsty = int(input("첫 번째 y좌표 입력:"))

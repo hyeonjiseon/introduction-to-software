@@ -1,3 +1,17 @@
+#https://pypi.python.org/pypi/eqsygui에서 tar.gz 다운로드
+#easygui-0.98.1.tar 파일 압축 풀기
+#python 설치 경로에 easygui 폴더 복사
+#ex)C:\Users\(PC이름)\AppData\Local\Programs\Python\Pyton36-32\Lib
+#AppData 폴더의 경우 숨김 폴더로 되어 있으니 숨김 폴더 볼 수 있게 설정하기
+
+#S텔레콤 32요금제의 월 이용요금을 계산하는 프로그램
+#기본 요금: 37400원 - 음성: 120분, 문자 200건, 데이터 800MB 기본 제공
+#초과 요금: 음성 통화 1.98/초, 문자 22원/건, 데이터사용 55원/MB
+#import easygui를 맨 위에 붙이기
+#easygui.enterbox()로 각각 값 입력 받으 후 변수에 저장
+#출력을 문자열 접합으로 하나의 스트링 변수에 저장 후 easygui.msgbox()로 출력. 줄바꿈은 '\n'사용
+#입력 값: 이름, 음성통화시간(분), 문자 건수, 데이터 사용량(MB)
+
 import easygui
 name = easygui.enterbox("이름을 입력하세요")
 time = int(easygui.enterbox("음성 통화시간(분)을 입력하세요"))
