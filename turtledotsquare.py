@@ -15,3 +15,13 @@ for i in range(edges):
         t.forward(dot_size)
         t.down() #펜을 내려서 그리기 시작
     t.right(90)
+
+#점이 더 작게
+t.pencolor("red")
+for i in range(edges):
+    for j in range(edges*2):
+        t.forward(dot_size/2)
+        t.up()
+        t.forward(dot_size/2)
+        t.down()
+    t.right(90)
