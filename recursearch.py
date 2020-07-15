@@ -13,10 +13,10 @@ def searchn(lst,key):
         return 0
     elif lst[0] == key:
         n = searchn(lst[1:], key)
-        print("elif",n)
+        #print("elif",n)
         return n+1
     else:
         n=searchn(lst[1:], key)
-        print("else",n)
+        #print("else",n)
         return n
     
