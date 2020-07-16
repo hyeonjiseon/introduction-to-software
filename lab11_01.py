@@ -22,12 +22,12 @@ hr = height/2-110 #시침 길이
 while 1:
 
     t = time.localtime()
-    hour = (t[3] + t[4]/60)* 30
-    minute = (t[4] + t[5]/60)*6
-    second = t[5]*6
+    hour = (t[3] + t[4]/60)* 30 #1시간 30도, 시와 시 사이 분 반영
+    minute = (t[4] + t[5]/60)*6 #1분에 6도, 분과 분 사이 초 반영
+    second = t[5]*6 #1초에 6도
     
-    canvas.create_arc(10, 10, width-10, height-10, extent = 359, style = CHORD)
-    canvas.create_arc(240, 240, 260, 260, extent = 359, style = CHORD,fill = 'black')
+    canvas.create_arc(10, 10, width-10, height-10, extent = 359, style = CHORD) #시계 테두리
+    canvas.create_arc(240, 240, 260, 260, extent = 359, style = CHORD,fill = 'black') #시계 중심
     canvas.create_rectangle(220, 80, 280, 120, outline = 'orange', width=3)
     canvas.create_rectangle(190, 420, 310, 380, outline = 'gray', width=3)
 
@@ -35,7 +35,6 @@ while 1:
         daylight = 'AM'
     else:
         daylight = 'PM'
-
     canvas.create_text(250, 100, text = str(daylight), font=('Arial', 15))
 
     if t[6] == 0:
@@ -52,12 +51,10 @@ while 1:
         dayweek = '토'
     elif t[6] == 6:
         dayweek = '일'
-
     daydate = str(t[1])+"월 "+str(t[2])+"일("+dayweek+")"
-
     canvas.create_text(250, 400, text=daydate, font=('Arial', 15), fill='purple')
 
-
+    #시계 테두리 눈금
     for i in range(0, 360, 6):
         x1 = 250+230*math.sin(i/360*3.14*2)
         y1 = 250-230*math.cos(i/360*3.14*2)
@@ -85,7 +82,7 @@ while 1:
 
     tk.update()
     canvas.delete("all")
-    time.sleep(0.)
+    time.sleep(1)
 
 
 #다른 방법
